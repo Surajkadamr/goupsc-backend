@@ -34,8 +34,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       let decoded = jwt_decode(token);
       if (imp === JSON.stringify(decoded.id)) {
         const razorpay = new Razorpay({
-          key_id: "rzp_live_xuQSaeqS5c2Dzq",
-          key_secret: "j4QtRowU1Wes19B3YYx228yb",
+          key_id: process.env.key_id,
+          key_secret: process.env.key_secret,
         });
 
         // Create an order -> generate the OrderID -> Send it to the Front-end
@@ -71,7 +71,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   },
   async postorder(ctx) {
     try {
-      const hmac = crypto.createHmac("sha256", "j4QtRowU1Wes19B3YYx228yb");
+      const hmac = crypto.createHmac("sha256", process.env.key_secret);
       hmac.update(ctx.request.body.oid + "|" + ctx.request.body.pid);
       let generatedSignature = hmac.digest("hex");
 
