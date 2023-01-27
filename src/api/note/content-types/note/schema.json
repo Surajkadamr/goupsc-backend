@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notes",
+  "info": {
+    "singularName": "note",
+    "pluralName": "notes",
+    "displayName": "note"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "DownloadLink": {
+      "type": "string",
+      "required": true
+    },
+    "MainTitle": {
+      "type": "enumeration",
+      "enum": [
+        "Daily News Paper Analysis",
+        "Monthly News Paper Analysis"
+      ]
+    }
+  }
+}

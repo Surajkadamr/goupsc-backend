@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seriestests",
+  "info": {
+    "singularName": "seriestest",
+    "pluralName": "seriestests",
+    "displayName": "seriestest",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "tests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::test.test",
+      "mappedBy": "seriestest"
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
